@@ -15,8 +15,9 @@
 An end-to-end platform that takes a job opening from an intake form and runs the entire top-of-funnel automatically: candidate outreach, screening-interview ingestion and scoring, CV parsing, and **DeepSeek-based role matching**, writing a ranked, *explained* shortlist back to the team's workspace.
 
 - **Matching Engine** (Python / FastAPI / DeepSeek): a six-stage funnel that ranks candidates with a written rationale each. A full run scans a **40,000-row** database in **90 to 120 minutes** on Railway and posts **Slack status updates** to the whole team.
-- **Candidate Flow** (Node / Express, 14 services): **2,000+ WhatsApp messages and emails a day** (Twilio + Postmark), transcript scoring, and a CV parser that finishes in **under a minute**.
+- **Candidate Flow** (Node / Express, 14 services): a mix of **webhook-triggered** automations (CV parsing, transcript scoring) and **cron-scheduled** reminder sweeps. Sends **2,000+ WhatsApp messages and emails a day** (Twilio + Postmark); CV parser finishes in **under a minute**.
 - **AI only where it earns its keep:** ~90% of the work runs on DeepSeek where reasoning is needed; parsing, filtering, and routing run on regex and deterministic logic, so no tokens are wasted.
+- **One codebase, many deployments:** behavior is driven entirely by environment variables, so the same service ships to each client's needs by config and a redeploy (e.g. DeepSeek Flash vs Pro, or one reminder service deployed three times with different "hours since" thresholds), never a fork.
 - Built to run unattended: idempotent re-runs, rate limiting, retry/backoff, graceful degradation, and schema-drift defense.
 
 **→ [Read the full case study](https://wessam-mandour.github.io/)**
