@@ -12,10 +12,10 @@
 
 ### 🛠️ Featured: AI Recruiting Automation Platform
 
-An end-to-end platform that takes a job opening from an intake form and runs the entire top-of-funnel automatically: candidate outreach, screening-interview ingestion and scoring, CV parsing, and **DeepSeek-based role matching**, writing a ranked, *explained* shortlist back to the team's workspace.
+An end-to-end platform that takes a job opening from an intake form and runs the entire top-of-funnel automatically: candidate outreach, screening-interview ingestion and scoring, CV parsing, and **LLM-based role matching**, writing a ranked, *explained* shortlist back to the team's workspace. It is **two completely independent projects**, each its own codebase and deployment:
 
-- **Matching Engine** (Python / FastAPI / DeepSeek): a six-stage funnel that ranks candidates with a written rationale each. A full run scans a **40,000-row** database in **90 to 120 minutes** on Railway and posts **Slack status updates** to the whole team.
-- **Candidate Flow** (Node / Express, 14 services): a mix of **webhook-triggered** automations (CV parsing, transcript scoring) and **cron-scheduled** reminder sweeps. Sends **2,000+ WhatsApp messages and emails a day** (Twilio + Postmark); CV parser finishes in **under a minute**.
+- **Project 01: Role Matching** (Python / FastAPI): a six-stage funnel that ranks candidates with a written rationale each. A run scans **~40,000 rows** and scores **20,000+ of them** (20,000+ LLM API calls) in **90 to 120 minutes** on Railway, posting **Slack status updates** to the whole team.
+- **Project 02: Candidate Flow** (Node / Express, 14 services): a mix of **webhook-triggered** automations (CV parsing, transcript fetch + scoring) and **cron-scheduled** reminder sweeps. Sends **2,000+ WhatsApp messages and emails a day** (Twilio + Postmark); CV parser finishes in **under a minute**; a completed interview updates Notion in about **60 seconds**.
 - **AI only where it earns its keep:** ~90% of the work runs on DeepSeek where reasoning is needed; parsing, filtering, and routing run on regex and deterministic logic, so no tokens are wasted.
 - **One codebase, many deployments:** behavior is driven entirely by environment variables, so the same service ships to each client's needs by config and a redeploy (e.g. DeepSeek Flash vs Pro, or one reminder service deployed three times with different "hours since" thresholds), never a fork.
 - Built to run unattended: idempotent re-runs, rate limiting, retry/backoff, graceful degradation, and schema-drift defense.
