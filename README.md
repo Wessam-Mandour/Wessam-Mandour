@@ -1,6 +1,6 @@
 <h1 align="center">Wessam Mandour</h1>
 <p align="center"><b>AI Automation Engineer &amp; Technical Writer</b></p>
-<p align="center">I architect, build, and ship production automation systems from scratch — then document them well enough to run unattended.</p>
+<p align="center">I architect, build, and ship production automation systems from scratch, then document them well enough to run unattended.</p>
 
 <p align="center">
   <a href="https://wessam-mandour.github.io/"><img src="https://img.shields.io/badge/View_my_portfolio-0d1117?style=for-the-badge&logo=githubpages&logoColor=5eead4" alt="Portfolio"></a>
@@ -10,12 +10,12 @@
 
 ---
 
-### 🛠️ Featured — AI Recruiting Automation Platform
+### 🛠️ Featured, AI Recruiting Automation Platform
 
-An end-to-end platform that takes a job opening from an intake form and runs the entire top-of-funnel automatically: candidate outreach, screening-interview ingestion and scoring, CV parsing, and **LLM-based role matching** — writing a ranked, *explained* shortlist back to the team's workspace.
+An end-to-end platform that takes a job opening from an intake form and runs the entire top-of-funnel automatically: candidate outreach, screening-interview ingestion and scoring, CV parsing, and **LLM-based role matching**, writing a ranked, *explained* shortlist back to the team's workspace.
 
-- **Matching Engine** — Python / FastAPI · a six-stage funnel turning a free-text job description into a ranked shortlist with a written rationale per candidate.
-- **Candidate Flow** — Node / Express · 14 independently deployed, event-driven services for email, WhatsApp, transcript scoring, and CV parsing.
+- **Matching Engine**, Python / FastAPI · a six-stage funnel turning a free-text job description into a ranked shortlist with a written rationale per candidate.
+- **Candidate Flow**, Node / Express · 14 independently deployed, event-driven services for email, WhatsApp, transcript scoring, and CV parsing.
 - Built for production: idempotent re-runs, rate limiting, retry/backoff, graceful degradation, cost-aware LLM staging, and schema-drift defense.
 
 **→ [Read the full case study](https://wessam-mandour.github.io/)**
